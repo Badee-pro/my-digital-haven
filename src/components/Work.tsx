@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Work = () => {
   const projects = [
@@ -8,6 +9,7 @@ const Work = () => {
       description:
         "Complete brand overhaul for a fintech startup, including visual identity and web platform design.",
       year: "2024",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
     },
     {
       title: "Lumina Studio",
@@ -15,6 +17,7 @@ const Work = () => {
       description:
         "Mobile app design for a photography platform with AI-powered editing features.",
       year: "2024",
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
     },
     {
       title: "Verde Living",
@@ -22,6 +25,7 @@ const Work = () => {
       description:
         "Sustainable furniture brand's online store with immersive product experiences.",
       year: "2023",
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
     },
     {
       title: "Pulse Health",
@@ -29,6 +33,7 @@ const Work = () => {
       description:
         "Health monitoring dashboard for wearable device ecosystem.",
       year: "2023",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
     },
   ];
 
@@ -51,45 +56,43 @@ const Work = () => {
           </p>
         </div>
 
-        {/* Projects grid */}
-        <div className="space-y-6">
+        {/* Projects grid - cards */}
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <article
+            <Card
               key={project.title}
-              className="group cursor-pointer"
+              className="group cursor-pointer overflow-hidden border-border hover:border-primary/50 transition-all duration-500 hover:shadow-elevated"
             >
-              <div className="relative border-t border-border py-8 md:py-10 transition-all duration-500 hover:border-foreground">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  {/* Project number and title */}
-                  <div className="flex items-baseline gap-6">
-                    <span className="text-sm text-muted-foreground font-medium">
-                      0{index + 1}
-                    </span>
-                    <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-medium group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  {/* Category and year */}
-                  <div className="flex items-center gap-8 md:gap-12">
-                    <span className="text-sm text-muted-foreground">
-                      {project.category}
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {project.year}
-                    </span>
-                    <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:bg-foreground group-hover:text-background group-hover:border-foreground transition-all duration-300">
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Description on hover */}
-                <p className="text-muted-foreground mt-4 max-w-xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  {project.description}
-                </p>
+              {/* Project image */}
+              <div className="aspect-[3/2] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
               </div>
-            </article>
+              
+              <CardHeader className="pb-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-medium tracking-wider uppercase text-primary">
+                    {project.category}
+                  </span>
+                  <span className="text-xs text-muted-foreground">{project.year}</span>
+                </div>
+                <CardTitle className="font-display text-2xl font-medium group-hover:text-primary transition-colors flex items-center justify-between">
+                  {project.title}
+                  <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:bg-foreground group-hover:text-background group-hover:border-foreground transition-all duration-300">
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </CardTitle>
+              </CardHeader>
+              
+              <CardContent>
+                <CardDescription className="text-muted-foreground leading-relaxed">
+                  {project.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
