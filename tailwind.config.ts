@@ -9,13 +9,15 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1200px",
       },
     },
     extend: {
       fontFamily: {
-        display: ["'Playfair Display'", "serif"],
-        body: ["'DM Sans'", "sans-serif"],
+        display: ["'Press Start 2P'", "monospace"],
+        body: ["'IBM Plex Mono'", "monospace"],
+        retro: ["'VT323'", "monospace"],
+        pixel: ["'Press Start 2P'", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -68,8 +70,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        soft: "0 4px 20px -4px hsl(220 20% 12% / 0.08)",
-        elevated: "0 12px 40px -12px hsl(220 20% 12% / 0.15)",
+        retro: "4px 4px 0px hsl(var(--foreground))",
+        "retro-sm": "2px 2px 0px hsl(var(--foreground))",
+        "retro-hover": "6px 6px 0px hsl(var(--foreground))",
       },
       keyframes: {
         "accordion-down": {

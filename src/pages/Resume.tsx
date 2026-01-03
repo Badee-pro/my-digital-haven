@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Download, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import { Download, Mail, MapPin, ExternalLink } from "lucide-react";
 
 const Resume = () => {
   const experience = [
@@ -55,23 +55,31 @@ const Resume = () => {
       <Navigation />
 
       <main className="min-h-screen pt-24 pb-16 bg-background">
-        <div className="container mx-auto px-6 max-w-4xl">
+        {/* Scanline overlay */}
+        <div className="fixed inset-0 scanlines pointer-events-none z-0" />
+
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
             <div>
-              <h1 className="font-display text-4xl md:text-5xl font-medium mb-2">Resume</h1>
-              <p className="text-muted-foreground">My professional experience and skills</p>
+              <p className="font-retro text-xl text-muted-foreground mb-2">
+                <span className="text-primary">&gt;</span> cat resume.txt
+              </p>
+              <h1 className="font-pixel text-2xl md:text-3xl mb-2">Resume</h1>
+              <p className="font-retro text-xl text-muted-foreground">
+                My experience and skills <span className="animate-blink">_</span>
+              </p>
             </div>
-            <Button variant="hero" className="gap-2">
+            <Button variant="retro" className="gap-2">
               <Download className="w-4 h-4" />
               Download PDF
             </Button>
           </div>
 
           {/* Contact Info */}
-          <section className="bg-card rounded-lg p-6 mb-8 border border-border">
-            <div className="flex flex-wrap gap-6 text-sm">
-              <a href="mailto:your@email.com" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <div className="border-2 border-foreground shadow-retro bg-card p-4 mb-8">
+            <div className="flex flex-wrap gap-6 font-retro text-lg">
+              <a href="mailto:your@email.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
                 your@email.com
               </a>
@@ -79,36 +87,37 @@ const Resume = () => {
                 <MapPin className="w-4 h-4" />
                 Waterloo, ON
               </span>
-              <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <ExternalLink className="w-4 h-4" />
                 linkedin.com/in/yourname
               </a>
             </div>
-          </section>
+          </div>
 
           {/* Experience */}
-          <section className="mb-12">
-            <h2 className="font-display text-2xl font-medium mb-6 flex items-center gap-3">
-              <span className="w-8 h-px bg-primary" />
-              Experience
-            </h2>
-            <div className="space-y-6">
+          <section className="mb-8">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="font-pixel text-sm text-primary">[01]</span>
+              <h2 className="font-pixel text-lg">Experience</h2>
+              <div className="flex-1 border-t-2 border-foreground/30" />
+            </div>
+            <div className="space-y-4">
               {experience.map((job, index) => (
-                <div key={index} className="bg-card rounded-lg p-6 border border-border hover:border-primary/50 transition-colors">
+                <div key={index} className="border-2 border-foreground shadow-retro-sm bg-card p-6 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-2 mb-3">
                     <div>
-                      <h3 className="font-semibold text-lg">{job.title}</h3>
-                      <p className="text-primary font-medium">{job.company}</p>
+                      <h3 className="font-body font-semibold text-lg">{job.title}</h3>
+                      <p className="font-retro text-xl text-primary">{job.company}</p>
                     </div>
-                    <div className="text-sm text-muted-foreground text-right">
+                    <div className="text-right font-retro text-lg text-muted-foreground">
                       <p>{job.period}</p>
                       <p>{job.location}</p>
                     </div>
                   </div>
                   <ul className="space-y-2">
                     {job.highlights.map((highlight, i) => (
-                      <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <li key={i} className="font-body text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary mt-1">&gt;</span>
                         {highlight}
                       </li>
                     ))}
@@ -119,20 +128,21 @@ const Resume = () => {
           </section>
 
           {/* Education */}
-          <section className="mb-12">
-            <h2 className="font-display text-2xl font-medium mb-6 flex items-center gap-3">
-              <span className="w-8 h-px bg-primary" />
-              Education
-            </h2>
+          <section className="mb-8">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="font-pixel text-sm text-primary">[02]</span>
+              <h2 className="font-pixel text-lg">Education</h2>
+              <div className="flex-1 border-t-2 border-foreground/30" />
+            </div>
             {education.map((edu, index) => (
-              <div key={index} className="bg-card rounded-lg p-6 border border-border">
+              <div key={index} className="border-2 border-foreground shadow-retro-sm bg-card p-6">
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-2">
                   <div>
-                    <h3 className="font-semibold text-lg">{edu.degree}</h3>
-                    <p className="text-primary font-medium">{edu.school}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{edu.details}</p>
+                    <h3 className="font-body font-semibold text-lg">{edu.degree}</h3>
+                    <p className="font-retro text-xl text-primary">{edu.school}</p>
+                    <p className="font-retro text-lg text-muted-foreground mt-1">{edu.details}</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">{edu.period}</p>
+                  <p className="font-retro text-lg text-muted-foreground">{edu.period}</p>
                 </div>
               </div>
             ))}
@@ -140,36 +150,37 @@ const Resume = () => {
 
           {/* Skills */}
           <section>
-            <h2 className="font-display text-2xl font-medium mb-6 flex items-center gap-3">
-              <span className="w-8 h-px bg-primary" />
-              Skills
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-card rounded-lg p-6 border border-border">
-                <h3 className="font-semibold mb-3">Languages</h3>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="font-pixel text-sm text-primary">[03]</span>
+              <h2 className="font-pixel text-lg">Skills</h2>
+              <div className="flex-1 border-t-2 border-foreground/30" />
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="border-2 border-foreground shadow-retro-sm bg-card p-6">
+                <h3 className="font-body font-semibold mb-3">Languages</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.languages.map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
+                    <span key={skill} className="px-3 py-1 border border-primary text-primary font-retro text-base">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="bg-card rounded-lg p-6 border border-border">
-                <h3 className="font-semibold mb-3">Frameworks</h3>
+              <div className="border-2 border-foreground shadow-retro-sm bg-card p-6">
+                <h3 className="font-body font-semibold mb-3">Frameworks</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.frameworks.map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
+                    <span key={skill} className="px-3 py-1 border border-primary text-primary font-retro text-base">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="bg-card rounded-lg p-6 border border-border">
-                <h3 className="font-semibold mb-3">Tools</h3>
+              <div className="border-2 border-foreground shadow-retro-sm bg-card p-6">
+                <h3 className="font-body font-semibold mb-3">Tools</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.tools.map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
+                    <span key={skill} className="px-3 py-1 border border-primary text-primary font-retro text-base">
                       {skill}
                     </span>
                   ))}
