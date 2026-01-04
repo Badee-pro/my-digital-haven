@@ -57,7 +57,7 @@ const Hero = () => {
                     &gt; Initializing profile...
                   </p>
                   <h1 className="font-pixel text-xl md:text-2xl lg:text-3xl leading-relaxed mb-4">
-                    Your Name
+                    Badee Khalbouss
                   </h1>
                   <div className="inline-block border-2 border-primary bg-primary/10 px-4 py-2">
                     <span className="font-retro text-xl text-primary">

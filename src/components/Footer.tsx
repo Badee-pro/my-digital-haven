@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-retro text-lg text-muted-foreground">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Badee Khalbouss. All rights reserved.
           </p>
           <p className="font-retro text-lg text-muted-foreground">
             <span className="text-primary">&gt;</span> Built with React + TypeScript

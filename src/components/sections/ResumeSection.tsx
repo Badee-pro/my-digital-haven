@@ -65,17 +65,17 @@ const ResumeSection = () => {
         {/* Contact Info */}
         <div className="border-2 border-foreground shadow-retro bg-card p-4 mb-8">
           <div className="flex flex-wrap gap-6 font-retro text-lg">
-            <a href="mailto:your@email.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <a href="mailto:bkhalbou@uwaterloo.ca" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
               <Mail className="w-4 h-4" />
-              your@email.com
+              bkhalbou@uwaterloo.ca
             </a>
             <span className="flex items-center gap-2 text-muted-foreground">
               <MapPin className="w-4 h-4" />
               Waterloo, ON
             </span>
-            <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <a href="https://www.linkedin.com/in/badee-khalbouss/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
               <ExternalLink className="w-4 h-4" />
-              linkedin.com/in/yourname
+              linkedin.com/in/badee-khalbouss
             </a>
           </div>
         </div>

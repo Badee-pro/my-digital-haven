@@ -10,12 +10,12 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Your Name | CS @ UWaterloo</title>
+        <title>Badee Khalbouss | CS @ UWaterloo</title>
         <meta
           name="description"
           content="Computer Science student at University of Waterloo. Full-stack developer passionate about building innovative solutions."
         />
-        <meta property="og:title" content="Your Name | CS Portfolio" />
+        <meta property="og:title" content="Badee Khalbouss | CS Portfolio" />
         <meta
           property="og:description"
           content="Computer Science student at University of Waterloo building cool stuff."
