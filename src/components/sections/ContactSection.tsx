@@ -76,20 +76,15 @@ const ContactSection = () => {
               <p className="font-retro text-xl text-muted-foreground mb-4">
                 <span className="text-primary">&gt;</span> Find me online:
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              <div className="flex gap-4">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
-                    className="flex items-center gap-3 p-4 border-2 border-foreground bg-background hover:bg-secondary transition-colors group"
+                    aria-label={social.label}
+                    className="p-3 border-2 border-foreground bg-background hover:bg-secondary transition-colors group"
                   >
-                    <social.icon className="w-5 h-5 group-hover:text-primary transition-colors" />
-                    <div>
-                      <p className="font-body text-sm font-medium">{social.label}</p>
-                      <p className="font-retro text-base text-muted-foreground">
-                        {social.handle}
-                      </p>
-                    </div>
+                    <social.icon className="w-6 h-6 group-hover:text-primary transition-colors" />
                   </a>
                 ))}
               </div>
